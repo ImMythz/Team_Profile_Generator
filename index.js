@@ -72,8 +72,8 @@ const engineerPrompts = () => {
         }, 
         {
             type: 'input',
-            name: 'number',
-            message: 'What is their phone number?'
+            name: 'github',
+            message: 'What is their GitHub username?'
         },
         {
             type: 'list',
@@ -117,8 +117,8 @@ const internPrompts = () => {
         }, 
         {
             type: 'input',
-            name: 'number',
-            message: 'What is their phone number?'
+            name: 'school',
+            message: 'What school did they attend?'
         },
         {
             type: 'list',
