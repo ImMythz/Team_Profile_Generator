@@ -4,7 +4,8 @@
   "description": "Team Profile Generator",
   "main": "index.js",
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/ImMythz/Team_Profile_Generator/issues"
   },
-  "homepage": "https://github.com/ImMythz/Team_Profile_Generator#readme"
+  "homepage": "https://github.com/ImMythz/Team_Profile_Generator#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^8.1.2",
+    "util": "^0.12.4"
+  }
 }
