@@ -1,3 +1,7 @@
+const manager = require('./models/manager')
+const engineer = require('./models/engineer')
+const intern = require('./models/intern')
+
 const generateHTML = (answers) =>
   `<!DOCTYPE html>
 <html lang="en">
