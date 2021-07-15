@@ -52,6 +52,7 @@ const initialPrompts = () => {
     .catch((err) => console.log(err))
 }
 
+// Handles prompts realated to add an Engineer
 const engineerPrompts = () => {
     return inquirer.prompt([
         {
@@ -68,6 +69,51 @@ const engineerPrompts = () => {
             type: 'input',
             name: 'email',
             message: 'What is the Engineers email?'
+        }, 
+        {
+            type: 'input',
+            name: 'number',
+            message: 'What is their phone number?'
+        },
+        {
+            type: 'list',
+            name: 'addMemeber',
+            message: 'Would you like to add another team member?',
+            choices: ['Engineer', 'Intern', 'I do not wish to add any more team members']
+        }
+    ])
+    .then((answers) => {
+        switch(answers.addMember) {
+            case 'Engineer':
+                engineerPrompts()
+                break;
+            case 'Intern':
+                internPrompts()
+                break;
+            default:
+                writeFileAsync('index.html', generateHTML(answers))
+        }
+    })
+    .catch((err) => console.log(err))
+}
+
+// Handles prompts realated to add an Intern
+const internPrompts = () => {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the Interns name?'
+        },
+        {
+            type: 'input', 
+            name: 'engineerId',
+            message: 'What is thier employee id?'
+        }, 
+        {
+            type: 'input',
+            name: 'email',
+            message: 'What is the Interns email?'
         }, 
         {
             type: 'input',
