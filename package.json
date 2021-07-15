@@ -1,0 +1,19 @@
+{
+  "name": "team_profile_generator",
+  "version": "1.0.0",
+  "description": "Team Profile Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImMythz/Team_Profile_Generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImMythz/Team_Profile_Generator/issues"
+  },
+  "homepage": "https://github.com/ImMythz/Team_Profile_Generator#readme"
+}
