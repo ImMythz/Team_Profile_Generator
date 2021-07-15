@@ -2,8 +2,11 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const util = require('util')
 const generateHTML = require('./src/generateHTML')
+const engineer = require('./src/models/engineer')
+const intern = require('./src/models/intern')
+const manager = require('./src/models/manager')
 
-let team = []
+let teamMembers = []
 
 // create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
@@ -47,6 +50,7 @@ const initialPrompts = () => {
                 break;
             default:
                 writeFileAsync('index.html', generateHTML(answers))
+                console.log('file created')
         }
     })
     .catch((err) => console.log(err))
@@ -92,6 +96,7 @@ const engineerPrompts = () => {
                 break;
             default:
                 writeFileAsync('index.html', generateHTML(answers))
+                console.log('file created')
         }
     })
     .catch((err) => console.log(err))
@@ -137,6 +142,7 @@ const internPrompts = () => {
                 break;
             default:
                 writeFileAsync('index.html', generateHTML(answers))
+                console.log('file created')
         }
     })
     .catch((err) => console.log(err))
