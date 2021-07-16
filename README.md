@@ -36,6 +36,8 @@ This application allows the user to add team members to their team through a ser
 
 Click the image below to play a video demo of this application
 
+https://user-images.githubusercontent.com/72038731/125985851-ce010ee7-dc8e-4c27-81d8-10dbc5a47a16.mp4
+
 ## License
 MIT License
 
