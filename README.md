@@ -22,12 +22,12 @@ This CLI tool allows the user to take in employee information on a software engi
   
 6. You should then see a series of choices in the terminal as shown below which signifies the application is working
 
-  <img src='images\TPG-screenshot-1.png' alt='Employee Tracker Sceenhot One'>
+  <img src='assets\TPG-screenshot-1.png' alt='Employee Tracker Sceenhot One'>
 
 ## Usage
 This application allows the user to add team members to their team through a series of prompts in the CLI. Here are a few screenshots showcasing the application
-<img src='images\TPG-screenshot-2.png' alt='Employee Tracker Sceenhot One'>
-<img src='images\TPG-screenshot-3.png' alt='Employee Tracker Sceenhot Two'>
+<img src='assets\TPG-screenshot-2.png' alt='Employee Tracker Sceenhot One'>
+<img src='assets\TPG-screenshot-3.png' alt='Employee Tracker Sceenhot Two'>
 
 ## License
 MIT License
