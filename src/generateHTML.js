@@ -12,9 +12,9 @@ let employeeCard = (employee) => {
   let extra = '';
   let color = '';
   let emoji = '';
-  switch (employee.role()) {
+  switch (employee.getRole()) {
     case 'Manager':
-      extra = 'Office Number: ' + employee.officeNum;
+      extra = 'Office Number: ' + employee.officeNumber;
       color = 'bg-primary bg-gradient';
       emoji = '💼';
       break;
@@ -35,7 +35,7 @@ let employeeCard = (employee) => {
     <div class="card shadow-sm text-center mt-5 m-5" style="width: 18rem;">
       <div class="card-body ${color}">
         <h5 class="card-title">${employee.name}</h5>
-        <h5 class="card-title">${emoji} ${employee.role()}</h5>
+        <h5 class="card-title">${emoji} ${employee.getRole()}</h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${employee.id}</li>

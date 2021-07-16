@@ -26,8 +26,15 @@ This CLI tool allows the user to take in employee information on a software engi
 
 ## Usage
 This application allows the user to add team members to their team through a series of prompts in the CLI. Here are a few screenshots showcasing the application
+
+
 <img src='assets\TPG-screenshot-2.png' alt='Employee Tracker Sceenhot One'>
+
+
 <img src='assets\TPG-screenshot-3.png' alt='Employee Tracker Sceenhot Two'>
+
+
+Click the image below to play a video demo of this application
 
 ## License
 MIT License
