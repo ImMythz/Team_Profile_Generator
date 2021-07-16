@@ -1,8 +1,23 @@
-const manager = require('./models/manager')
-const engineer = require('./models/engineer')
-const intern = require('./models/intern')
+const teamBuilder = require('../index.js')
 
-const generateHTML = (answers) =>
+const generateTeamMembers = (teamMembers) => {
+  // let memberCards;
+  for ( i = 0; i < teamMembers.length; i++) {
+    switch (teamMembers[i].role()) {
+      case 'Manager':
+        console.log('added manager')
+        break;
+      case 'Engineer':
+        console.log('added engineer')
+        break;
+      case 'Intern':
+        console.log('added Intern')
+        break;
+    }
+  }
+}
+
+const generateHTML = (teamMembers) =>
   `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +28,7 @@ const generateHTML = (answers) =>
 </head>
 <body>
 <div>
-    <h1>${answers.name}</h1>
+    <h1>${answers}</h1>
     <h1>${answers.managerId}</h1>
     <h1>${answers.email}</h1>
     <h1>${answers.number}</h1>

@@ -2,7 +2,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const util = require('util')
 const generateHTML = require('./src/generateHTML')
-
+const generateTeamMembers = require('./src/generateHTML')
 const Engineer = require('./src/models/engineer')
 const Intern = require('./src/models/intern')
 const Manager = require('./src/models/manager')
@@ -184,7 +184,7 @@ const internPrompts = () => {
                 internPrompts()
                 break;
             default:
-                writeFileAsync('index.html', generateHTML(answers))
+                writeFileAsync('index.html', generateTeamMembers(teamMembers))
                 console.log(teamMembers)
                 console.log('file created')
         }
