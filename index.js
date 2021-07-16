@@ -2,9 +2,8 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const util = require('util')
 const generateHTML = require('./src/generateHTML')
-const engineer = require('./src/models/engineer')
-const intern = require('./src/models/intern')
-const manager = require('./src/models/manager')
+const Engineer = require('./src/models/engineer')
+const Intern = require('./src/models/intern')
 const Manager = require('./src/models/manager')
 
 let teamMembers = []
@@ -54,7 +53,7 @@ const initialPrompts = () => {
             ]
         }
     ]).then((answers) => {
-        const manager = new Manager(answers.name, answers.id, answers.email, answers.number);
+        const manager = new Manager (answers.name, answers.id, answers.email, answers.number);
         teamMembers.push(manager)
         switch(answers.addMember) {
             case 'Engineer':
@@ -114,6 +113,8 @@ const engineerPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        const engineer = new Engineer (answers.name, answers.enginnerId, answers.email, answers.github);
+        teamMembers.push(engineer)
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
@@ -139,7 +140,7 @@ const internPrompts = () => {
         },
         {
             type: 'input', 
-            name: 'engineerId',
+            name: 'internId',
             message: 'What is thier employee id?'
         }, 
         {
@@ -172,6 +173,8 @@ const internPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        const intern = new Intern (answers.name, answers.internId, answers.email, answers.school);
+        teamMembers.push(intern)
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
@@ -181,6 +184,7 @@ const internPrompts = () => {
                 break;
             default:
                 writeFileAsync('index.html', generateHTML(answers))
+                console.log(teamMembers)
                 console.log('file created')
         }
     })
