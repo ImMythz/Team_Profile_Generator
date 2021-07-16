@@ -2,6 +2,7 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const util = require('util')
 const generateHTML = require('./src/generateHTML')
+
 const Engineer = require('./src/models/engineer')
 const Intern = require('./src/models/intern')
 const Manager = require('./src/models/manager')
@@ -53,7 +54,7 @@ const initialPrompts = () => {
             ]
         }
     ]).then((answers) => {
-        const manager = new Manager (answers.name, answers.id, answers.email, answers.number);
+        const manager = new Manager (answers.name, answers.managerId, answers.email, answers.number);
         teamMembers.push(manager)
         switch(answers.addMember) {
             case 'Engineer':
@@ -113,7 +114,7 @@ const engineerPrompts = () => {
             ]
         }
     ]).then((answers) => {
-        const engineer = new Engineer (answers.name, answers.enginnerId, answers.email, answers.github);
+        const engineer = new Engineer (answers.name, answers.engineerId, answers.email, answers.github);
         teamMembers.push(engineer)
         switch(answers.addMember) {
             case 'Engineer':
