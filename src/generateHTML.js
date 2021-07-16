@@ -1,7 +1,7 @@
 const teamBuilder = require('../index.js')
 
 const generateTeamMembers = (teamMembers) => {
-  let memberCards;
+  let memberCards = '';
   for ( i = 0; i < teamMembers.length; i++) {
     switch (teamMembers[i].role()) {
       case 'Manager':
@@ -66,8 +66,8 @@ let internCard = (intern) => {
 </div>`
 }
 
+// Generates HTML for user with Team Member Cards
 const generateHTML = (teamMembers) => {
-  console.log(memberCards)
   return `<!DOCTYPE html>
   <html lang="en">
   <head>
