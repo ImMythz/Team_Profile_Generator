@@ -1,5 +1,3 @@
-const teamBuilder = require('../index.js')
-
 const generateTeamMembers = (teamMembers) => {
   let memberCards = '';
   for ( i = 0; i < teamMembers.length; i++) {
@@ -24,14 +22,14 @@ const generateTeamMembers = (teamMembers) => {
 let managerCard = (manager) => {
   return `
   <div class="card" style="width: 18rem;">
-  <div class="card-body">
+  <div class="card-body bg-primary bg-gradient">
     <h5 class="card-title">${manager.name}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Manager</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">${manager.id}</li>
+    <li class="list-group-item">${manager.email}</li>
+    <li class="list-group-item">${manager.officeNum}</li>
   </ul>
 </div>`
 }
@@ -39,14 +37,14 @@ let managerCard = (manager) => {
 let engineerCard = (engineer) => {
   return `
   <div class="card" style="width: 18rem;">
-  <div class="card-body">
+  <div class="card-body bg-success bg-gradient">
     <h5 class="card-title">${engineer.name}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Engineer</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+  <li class="list-group-item">${engineer.id}</li>
+  <li class="list-group-item">${engineer.email}</li>
+  <li class="list-group-item">${engineer.github}</li>
   </ul>
 </div>`
 }
@@ -54,14 +52,14 @@ let engineerCard = (engineer) => {
 let internCard = (intern) => {
   return `
   <div class="card" style="width: 18rem;">
-  <div class="card-body">
+  <div class="card-body bg-danger bg-gradient">
     <h5 class="card-title">${intern.name}</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Intern</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
+  <li class="list-group-item">${intern.id}</li>
+  <li class="list-group-item">${intern.email}</li>
+  <li class="list-group-item">${intern.school}</li>
   </ul>
 </div>`
 }
