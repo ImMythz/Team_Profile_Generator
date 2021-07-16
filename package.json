@@ -4,7 +4,7 @@
   "description": "Team Profile Generator",
   "main": "index.js",
   "scripts": {
-    "test": "npm test",
+    "test": "jest",
     "start": "node index.js"
   },
   "repository": {
@@ -21,5 +21,8 @@
     "fs": "0.0.1-security",
     "inquirer": "^8.1.2",
     "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "jest": "^27.0.6"
   }
 }
