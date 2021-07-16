@@ -37,7 +37,7 @@ const initialPrompts = () => {
             type: 'list',
             name: 'addMemeber',
             message: 'Would you like to add a team member?',
-            choices: ['Engineer', 'Intern', 'I do not wish to add any more team members']
+            choices: [{name: 'BABA BOOEY', value: 'Engineer'},'Intern', 'I do not wish to add any more team members']
         }
     ])
     .then((answers) => {
@@ -46,6 +46,7 @@ const initialPrompts = () => {
                 engineerPrompts()
                 break;
             case 'Intern':
+                console.log('yo')
                 internPrompts()
                 break;
             default:
