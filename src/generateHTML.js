@@ -1,67 +1,41 @@
 const generateTeamMembers = (teamMembers) => {
   let memberCards = '';
   for ( i = 0; i < teamMembers.length; i++) {
-    switch (teamMembers[i].role()) {
-      case 'Manager':
-        memberCards += managerCard(teamMembers[i])
-        console.log('added manager')
-        break;
-      case 'Engineer':
-        memberCards += engineerCard(teamMembers[i])
-        console.log('added engineer')
-        break;
-      case 'Intern':
-        memberCards += internCard(teamMembers[i])
-        console.log('added Intern')
-        break;
-    }
+        memberCards += employeeCard(teamMembers[i])
+        console.log('added employee card')
   }
   return memberCards
 }
 
-let managerCard = (manager) => {
+let employeeCard = (employee) => {
+  let extra = '';
+  let color = '';
+  switch (employee.role()) {
+    case 'Manager':
+      extra = 'Office Number: ' + employee.officeNum;
+      color = 'bg-primary bg-gradient';
+      break;
+    case 'Engineer':
+      extra = 'GitHub: ' + '<a href="https://github.com/' + employee.github + '">' + employee.github + '</a>';
+      color = 'bg-success bg-gradient';
+      break;
+    case 'Intern':
+      extra = 'School: ' + employee.school;
+      color = 'bg-danger bg-gradient';
+      break;
+  }
   return `
-  <div class="card" style="width: 18rem;">
-  <div class="card-body bg-primary bg-gradient">
-    <h5 class="card-title">${manager.name}</h5>
-    <h5 class="card-title">Manager</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">${manager.id}</li>
-    <li class="list-group-item">${manager.email}</li>
-    <li class="list-group-item">${manager.officeNum}</li>
-  </ul>
-</div>`
-}
-
-let engineerCard = (engineer) => {
-  return `
-  <div class="card" style="width: 18rem;">
-  <div class="card-body bg-success bg-gradient">
-    <h5 class="card-title">${engineer.name}</h5>
-    <h5 class="card-title">Engineer</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-  <li class="list-group-item">${engineer.id}</li>
-  <li class="list-group-item">${engineer.email}</li>
-  <li class="list-group-item">${engineer.github}</li>
-  </ul>
-</div>`
-}
-
-let internCard = (intern) => {
-  return `
-  <div class="card" style="width: 18rem;">
-  <div class="card-body bg-danger bg-gradient">
-    <h5 class="card-title">${intern.name}</h5>
-    <h5 class="card-title">Intern</h5>
-  </div>
-  <ul class="list-group list-group-flush">
-  <li class="list-group-item">${intern.id}</li>
-  <li class="list-group-item">${intern.email}</li>
-  <li class="list-group-item">${intern.school}</li>
-  </ul>
-</div>`
+    <div class="card shadow-sm text-center mt-5 m-5" style="width: 18rem;">
+      <div class="card-body ${color}">
+        <h5 class="card-title">${employee.name}</h5>
+        <h5 class="card-title">${employee.role()}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: ${employee.id}</li>
+        <li class="list-group-item">Email:<a href="mailto:${employee.email}?subject=Subject&body=message%20goes%20here"> ${employee.email}</a></li>
+        <li class="list-group-item">${extra}</li>
+      </ul>
+    </div>`
 }
 
 // Generates HTML for user with Team Member Cards
@@ -75,9 +49,16 @@ const generateHTML = (teamMembers) => {
     <title>Document</title>
   </head>
   <body>
-  <div>
-    ${generateTeamMembers(teamMembers)}
-  </div>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+        <div class="mx-auto">
+          <a class="navbar-brand text-white" href="#">My Tech Team</a>
+        </div>
+      </nav>
+    </div>
+    <main class="d-flex flex-row flex-wrap justify-content-center">
+        ${generateTeamMembers(teamMembers)}
+    </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
