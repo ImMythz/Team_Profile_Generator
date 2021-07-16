@@ -6,11 +6,13 @@ const Engineer = require('./src/models/engineer')
 const Intern = require('./src/models/intern')
 const Manager = require('./src/models/manager')
 
+// Sets up an empty array for team members to be added to
 let teamMembers = []
 
 // create writeFile function using promises instead of a callback function
 const writeFileAsync = util.promisify(fs.writeFile);
 
+// Initial set of prompts for user to answer
 const initialPrompts = () => {
     return inquirer.prompt([
         {
@@ -53,6 +55,8 @@ const initialPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        // Creates a new Manager variable and adds it to the teamMembers array 
+        // Then runs the next set of prompts based on the user selection
         const manager = new Manager (answers.name, answers.managerId, answers.email, answers.number);
         teamMembers.push(manager)
         switch(answers.addMember) {
@@ -60,7 +64,6 @@ const initialPrompts = () => {
                 engineerPrompts()
                 break;
             case 'Intern':
-                console.log('yo')
                 internPrompts()
                 break;
             default:
@@ -113,6 +116,8 @@ const engineerPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        // Creates a new Engineer variable and adds it to the teamMembers array 
+        // Then runs the next set of prompts based on the user selection
         const engineer = new Engineer (answers.name, answers.engineerId, answers.email, answers.github);
         teamMembers.push(engineer)
         switch(answers.addMember) {
@@ -173,6 +178,8 @@ const internPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        // Creates a new Intern variable and adds it to the teamMembers array 
+        // Then runs the next set of prompts based on the user selection
         const intern = new Intern (answers.name, answers.internId, answers.email, answers.school);
         teamMembers.push(intern)
         switch(answers.addMember) {
@@ -184,13 +191,13 @@ const internPrompts = () => {
                 break;
             default:
                 writeFileAsync('index.html', generateHTML(teamMembers))
-                console.log(teamMembers)
                 console.log('file created')
         }
     })
     .catch((err) => console.log(err))
 }
 
+// Initializes the first set of prompts
 const init = () => {
     initialPrompts()
     .catch((err) => console.log(err))
