@@ -1,12 +1,13 @@
+// Iterates through teamMembers array and runs employeeCard on each iteration
 const generateTeamMembers = (teamMembers) => {
   let memberCards = '';
   for ( i = 0; i < teamMembers.length; i++) {
         memberCards += employeeCard(teamMembers[i])
-        console.log('added employee card')
   }
   return memberCards
 }
 
+//  assigns variables based on the each member
 let employeeCard = (employee) => {
   let extra = '';
   let color = '';
@@ -28,6 +29,8 @@ let employeeCard = (employee) => {
       emoji = '🎓';
       break;
   }
+
+  // Creates a card for each member 
   return `
     <div class="card shadow-sm text-center mt-5 m-5" style="width: 18rem;">
       <div class="card-body ${color}">

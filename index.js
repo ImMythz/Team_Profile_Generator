@@ -2,9 +2,9 @@ const inquirer = require('inquirer')
 const fs = require('fs')
 const util = require('util')
 const generateHTML = require('./src/generateHTML')
-const Engineer = require('./src/models/engineer')
-const Intern = require('./src/models/intern')
-const Manager = require('./src/models/manager')
+const Engineer = require('./lib/engineer')
+const Intern = require('./lib/intern')
+const Manager = require('./lib/manager')
 
 // Sets up an empty array for team members to be added to
 let teamMembers = []
@@ -67,7 +67,7 @@ const initialPrompts = () => {
                 internPrompts()
                 break;
             default:
-                writeFileAsync('index.html', generateHTML(answers))
+                writeFileAsync('dist/index.html', generateHTML(answers))
                 console.log('file created')
         }
     })
@@ -128,7 +128,7 @@ const engineerPrompts = () => {
                 internPrompts()
                 break;
             default:
-                writeFileAsync('index.html', generateHTML(teamMembers))
+                writeFileAsync('dist/index.html', generateHTML(teamMembers))
                 console.log('file created')
         }
     })
@@ -190,7 +190,7 @@ const internPrompts = () => {
                 internPrompts()
                 break;
             default:
-                writeFileAsync('index.html', generateHTML(teamMembers))
+                writeFileAsync('dist/index.html', generateHTML(teamMembers))
                 console.log('file created')
         }
     })
