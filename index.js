@@ -5,6 +5,7 @@ const generateHTML = require('./src/generateHTML')
 const engineer = require('./src/models/engineer')
 const intern = require('./src/models/intern')
 const manager = require('./src/models/manager')
+const Manager = require('./src/models/manager')
 
 let teamMembers = []
 
@@ -53,6 +54,8 @@ const initialPrompts = () => {
             ]
         }
     ]).then((answers) => {
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.number);
+        teamMembers.push(manager)
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
