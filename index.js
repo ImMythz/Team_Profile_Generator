@@ -35,12 +35,24 @@ const initialPrompts = () => {
         },
         {
             type: 'list',
-            name: 'addMemeber',
-            message: 'Would you like to add a team member?',
-            choices: [{name: 'BABA BOOEY', value: 'Engineer'},'Intern', 'I do not wish to add any more team members']
+            name: 'addMember',
+            message: 'Would you like to add a team member',
+            choices: [
+                {
+                    name: 'Engineer', 
+                    value: 'Engineer'
+                },
+                {
+                    name: 'Intern', 
+                    value: 'Intern'
+                }, 
+                { 
+                    name: 'I do not wish to add any more team members', 
+                    value: ''
+                }, 
+            ]
         }
-    ])
-    .then((answers) => {
+    ]).then((answers) => {
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
@@ -56,7 +68,6 @@ const initialPrompts = () => {
     })
     .catch((err) => console.log(err))
 }
-
 // Handles prompts realated to add an Engineer
 const engineerPrompts = () => {
     return inquirer.prompt([
@@ -82,12 +93,24 @@ const engineerPrompts = () => {
         },
         {
             type: 'list',
-            name: 'addMemeber',
+            name: 'addMember',
             message: 'Would you like to add another team member?',
-            choices: ['Engineer', 'Intern', 'I do not wish to add any more team members']
+            choices: [
+                {
+                    name: 'Engineer', 
+                    value: 'Engineer'
+                },
+                {
+                    name: 'Intern', 
+                    value: 'Intern'
+                }, 
+                { 
+                    name: 'I do not wish to add any more team members', 
+                    value: ''
+                }, 
+            ]
         }
-    ])
-    .then((answers) => {
+    ]).then((answers) => {
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
@@ -128,12 +151,24 @@ const internPrompts = () => {
         },
         {
             type: 'list',
-            name: 'addMemeber',
+            name: 'addMember',
             message: 'Would you like to add another team member?',
-            choices: ['Engineer', 'Intern', 'I do not wish to add any more team members']
+            choices: [
+                {
+                    name: 'Engineer', 
+                    value: 'Engineer'
+                },
+                {
+                    name: 'Intern', 
+                    value: 'Intern'
+                }, 
+                { 
+                    name: 'I do not wish to add any more team members', 
+                    value: ''
+                }, 
+            ]
         }
-    ])
-    .then((answers) => {
+    ]).then((answers) => {
         switch(answers.addMember) {
             case 'Engineer':
                 engineerPrompts()
@@ -151,7 +186,7 @@ const internPrompts = () => {
 
 const init = () => {
     initialPrompts()
-    .catch((err) => console.error(err));
+    .catch((err) => console.log(err))
 };
   
 init();
