@@ -10,25 +10,29 @@ const generateTeamMembers = (teamMembers) => {
 let employeeCard = (employee) => {
   let extra = '';
   let color = '';
+  let emoji = '';
   switch (employee.role()) {
     case 'Manager':
       extra = 'Office Number: ' + employee.officeNum;
       color = 'bg-primary bg-gradient';
+      emoji = '💼';
       break;
     case 'Engineer':
       extra = 'GitHub: ' + '<a href="https://github.com/' + employee.github + '">' + employee.github + '</a>';
       color = 'bg-success bg-gradient';
+      emoji = '👷';
       break;
     case 'Intern':
       extra = 'School: ' + employee.school;
       color = 'bg-danger bg-gradient';
+      emoji = '🎓';
       break;
   }
   return `
     <div class="card shadow-sm text-center mt-5 m-5" style="width: 18rem;">
       <div class="card-body ${color}">
         <h5 class="card-title">${employee.name}</h5>
-        <h5 class="card-title">${employee.role()}</h5>
+        <h5 class="card-title">${emoji} ${employee.role()}</h5>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">ID: ${employee.id}</li>
